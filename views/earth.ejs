@@ -1,0 +1,29 @@
+<%- include('partials/header', {title:"NASA API: Space is Neat!"}) -%>
+
+<br>
+<h1><center>EPOC</center></h1><br>
+<h3>Descripton about EPOC</h3>
+<link rel="icon" type="image/png" href="images/logo.png" />
+<center><img id = "earthImage" src = "" width = "80%"/></center><br><br>
+<h3 id = "caption"></h3>
+
+<script>
+  function getEarthImage(){
+    //return the link and Description
+    return fetch("https://api.nasa.gov/EPIC/api/natural?api_key=sO5IxzzW7mtK9uXAITFi5RXRRO3eJeljRYlsKmkU")
+    .then(response=>response.json())
+    .then(data=>{
+      let image = document.getElementById("earthImage");
+      let caption = document.getElementById("caption");
+      image.src = data.image;
+      caption.innerHTML = data.caption;
+      //now you have to display only one of the images.
+    });
+  }
+  let data = getEarthImage();
+</script>
+
+<!--<h5><a href="/">Learn More</a></h5>
+<h5><a href="/">View Index</a></h5>-->
+
+  <%- include('partials/footer') -%>

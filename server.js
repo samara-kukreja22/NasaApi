@@ -22,6 +22,30 @@ app.get('/potd.html', function(request, response){
   response.render("potd");
 });
 
+app.get('/mars.html', function(request, response){
+  response.status(200);
+  response.setHeader('Content-Type', 'text/html')
+  response.render("mars");
+});
+
+app.get('/astronomy.html', function(request, response){
+  response.status(200);
+  response.setHeader('Content-Type', 'text/html')
+  response.render("astronomy");
+});
+
+app.get('/earth.html', function(request, response){
+  response.status(200);
+  response.setHeader('Content-Type', 'text/html')
+  response.render("earth");
+});
+
+app.get('/subscribe.html', function(request, response){
+  response.status(200);
+  response.setHeader('Content-Type', 'text/html')
+  response.render("subscribe");
+});
+
 app.use("", function(request, response){
   response.status(404);
   response.setHeader('Content-Type', 'text/html')

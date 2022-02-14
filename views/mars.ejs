@@ -4,9 +4,41 @@
 <h1><center>Mars Rover</center></h1><br>
 <h3>Descripton about the purpose of the Mars Rover</h3>
 <link rel="icon" type="image/png" href="images/logo.png" />
-<h4>Description of the Picture</h4>
-<h5><a href="/">Learn More</a></h5>
-<h5><a href="/">View Index</a></h5>
-  <br>
+<center><img id = "marsImage" src = "" width = "80%"/></center><br><br>
+<h3 id = "roverName"></h3>
+<h4 id = "launchDate"></h4>
+<h4 id = "landDate"></h4>
+<h4 id = "fullName"></h4>
+<h4 id = "status"></h4>
+
+
+<script>
+  function getMarsImage(){
+    //return the link and Description
+    return fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=sO5IxzzW7mtK9uXAITFi5RXRRO3eJeljRYlsKmkU")
+    .then(response=>response.json())
+    .then(data=>{
+      let image = document.getElementById("marsImage");
+      let roverName = document.getElementById("roverName");
+      let launchDate = document.getElementById("launchDate");
+      let landDate = document.getElementById("landDate");
+      let fullName = document.getElementById("fullName");
+      let status = document.getElementById("status");
+      image.src = data.img_src;
+      roverName.innerHTML = data.name;
+      launchDate.innerHTML = data.launch_date;
+      landDate.innerHTML = data.landing_date;
+      fullName.innerHTML = data.full_name;
+      status.innerHTML = data.status;
+      //now you have to display only one of the images.
+
+    });
+  }
+  let data = getMarsImage();
+</script>
+
+<!--<h5><a href="/">Learn More</a></h5>
+<h5><a href="/">View Index</a></h5>-->
+
   <%- include('partials/footer') -%>
 <!-- use module% -->
