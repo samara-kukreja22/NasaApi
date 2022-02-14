@@ -16,6 +16,12 @@ app.get('/', function(request, response) {
   response.render("index");
 });
 
+app.get('/potd.html', function(request, response){
+  response.status(200);
+  response.setHeader('Content-Type', 'text/html')
+  response.render("potd");
+});
+
 app.use("", function(request, response){
   response.status(404);
   response.setHeader('Content-Type', 'text/html')
