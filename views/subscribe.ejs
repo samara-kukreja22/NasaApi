@@ -1,8 +1,10 @@
 <%- include('partials/header', {title:"NASA API: Space is Neat!"}) -%>
 <br>
 <h1><center>Subscribe!</center></h1><br>
-<link rel="icon" type="image/png" href="images/logo.png" />
-<label for="email">Title:</label>
-<input type="text" id="email" name="email" value=""><br>
+<form action="/">
+  <label for="fname">Email:</label><br>
+  <input type="text" id="email" name="email" value=""><br><br>
+  <input type="submit" value="Submit">
+</form>
 <br>
 <%- include('partials/footer') -%>

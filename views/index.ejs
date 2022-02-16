@@ -3,7 +3,14 @@
 <br>
 <h1><center>Welcome to the Nasa API!</center></h1>
 <h2><center>Space is Neat</center></h2>
-  <br>
-  <h3><center><a href="/potd.html">Click here to see latest Picture of the Day!</a></center></h3>
-  <br><br>
-  <%- include('partials/footer') -%>
+<br>
+<form action="/">
+  <center><label for="fname">Username:</label></center>
+  <center><input type="text" id="userName" name="userName" value=""></center><br>
+  <center><label for="fname">Password:</label></center>
+  <center><input type="text" id="password" name="password" value=""></center><br>
+  <center><input type="submit" value="Submit"></center>
+</form><br>
+<h3><center><a href="/potd.html">Click here to see latest Picture of the Day!</a></center></h3>
+<br><br>
+<%- include('partials/footer') -%>
