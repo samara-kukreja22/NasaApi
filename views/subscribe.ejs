@@ -1,9 +1,18 @@
 <%- include('partials/header', {title:"NASA API: Space is Neat!"}) -%>
 <br>
 <h1><center>Subscribe!</center></h1><br>
+<h5>Select What Information you are Interested in:</h5>
 <form action="/">
   <input type="checkbox" id="potd" name="potd" value="potd">
   <label for="potd">Picture of the Day</label><br>
+  <input type="checkbox" id="astronomy" name="astronomy" value="astronomy">
+  <label for="astronomy">Astronomy</label><br>
+  <input type="checkbox" id="mars" name="mars" value="mars">
+  <label for="mars">Mars Rover</label><br>
+  <input type="checkbox" id="earth" name="earth" value="earth">
+  <label for="earth">Earth</label><br>
+  <input type="checkbox" id="NeoWs" name="NeoWs" value="NeoWs">
+  <label for="NeoWs">NeoWs</label><br>
   <label for="fname">Email:</label>
   <input type="text" id="email" name="email" value="">
   <br><br>
