@@ -3,6 +3,9 @@ const fs = require('fs');
 const ejs = require('ejs');
 
 const app = express();
+/*
+take all the routes and put them into js files
+*/
 
 app.use(express.json());
 app.use(express.urlencoded());
