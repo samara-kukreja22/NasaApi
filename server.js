@@ -43,6 +43,12 @@ app.get('/earth.html', function(request, response){
   response.render("earth");
 });
 
+app.get('/neows.html', function(request, response){
+  response.status(200);
+  response.setHeader('Content-Type', 'text/html')
+  response.render("neows");
+});
+
 app.get('/subscribe.html', function(request, response){
   response.status(200);
   response.setHeader('Content-Type', 'text/html')

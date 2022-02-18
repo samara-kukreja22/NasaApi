@@ -17,8 +17,13 @@
     .then(data=>{
       let image = document.getElementById("earthImage");
       let caption = document.getElementById("caption");
-      image.src = data.image;
-      caption.innerHTML = data.caption;
+      console.log(data);
+      let imageNum = 0;
+      let url = "https://epic.gsfc.nasa.gov/archive/natural/" + data[imageNum].date.substring(0,4) +
+      "/" + data[imageNum].date.substring(5,7) + "/" + data[imageNum].date.substring(8,10) + "/png/" +
+      data[imageNum].image + ".png";
+      image.src = url;;
+      caption.innerHTML = data[imageNum].caption;
       //now you have to display only one of the images.
     });
   }
