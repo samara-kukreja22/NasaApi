@@ -1,16 +1,24 @@
 <%- include('partials/header', {title:"NASA API: Space is Neat!"}) -%>
-
-<br>
+<body class="space">
 <h1><center>Welcome to the Nasa API!</center></h1>
 <h2><center>Space is Neat</center></h2>
 <br>
+<view class="space">
+        <view class="stars">
+            <view class="star"></view>
+            <view class="star pink"></view>
+            <view class="star blue"></view>
+            <view class="star yellow"></view>
+        </view>
+</view>
 <form action="/">
   <center><label for="fname">Username:</label>
-  <input type="text" id="userName" name="userName" value=""></center><br>
+  <input type="text" id="userName" name="userName" value=""></center>
   <center><label for="fname">Password:</label>
-  <input type="text" id="password" name="password" value=""></center>
+  <input type="text" id="password" name="password" value=""></center><br>
   <center><input type="submit" value="Submit"></center>
 </form><br>
 <h3><center><a href="/potd.html">Click here to see latest Picture of the Day!</a></center></h3>
 <br><br>
+</body>
 <%- include('partials/footer') -%>
