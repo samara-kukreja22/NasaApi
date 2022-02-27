@@ -1,8 +1,44 @@
 <%- include('partials/header', {title:"NASA API: Space is Neat!"}) -%>
 <br>
 <h1><center>NeoWs</center></h1><br>
+<h3>Magnitude:</h3><h3 id = "magnitude"></h3>
+<h4 id = "name"></h4>
+<h3 id = "hazard"></h3>
+<h4 id = "diameter"></h4>
 <br>
+<script>
+  function getNeoWs(){
+    let today = new Date();
+    let month = today.getMonth() + 1;
+    if(month < 10){
+      month = "0" + month;
+    }
+    let date = today.getDate();
+    if(date < 10){
+      date = "0" + date;
+    }
+    let dayString = today.getFullYear() + "-" + month + "-" + date;
+    return fetch("https://api.nasa.gov/neo/rest/v1/feed?start_date="+ dayString + "&api_key=sO5IxzzW7mtK9uXAITFi5RXRRO3eJeljRYlsKmkU")
+    .then(response=>response.json())
+    .then(data=>{
+      console.log(dayString);
+      let asteroids = data.near_earth_objects[dayString];
+      let rock = asteroids[asteroids.length-1];
+      console.log(rock);
+      let magnitude = document.getElementById("magnitude");
+      magnitude.innerHTML = rock.absolute_magnitude_h;
+      /*let title = document.getElementById("title");
+      let imageElement = document.getElementById("dailyImage");
+      let explanationDiv = document.getElementById("explanation");
+      imageElement.src = data.hdurl;
+      explanationDiv.innerHTML = data.explanation;
+      title.innerHTML = data.title;*/
+    });
+  }
+  let data = getNeoWs();
+</script>
 <h6><a href="/">Learn More</a></h6>
 <h6><a href="/">View Index</a></h6>
 <br>
+
 <%- include('partials/footer') -%>
