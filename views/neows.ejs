@@ -1,10 +1,11 @@
 <%- include('partials/header', {title:"NASA API: Space is Neat!"}) -%>
 <br>
 <h1><center>NeoWs</center></h1><br>
-<h3>Magnitude:</h3><h3 id = "magnitude"></h3>
-<h4 id = "name"></h4>
-<h3 id = "hazard"></h3>
-<h4 id = "diameter"></h4>
+<h3>Magnitude:</h3><h3 id = "magnitude">Magnitude</h3>
+<h3>Name:</h3><h3 id = "name"></h3>
+<h3>Is Hazardous:</h3><h3 id = "hazard"></h3>
+<h3>Max Diameter</h3><h3 id = "diameterMax"></h3>
+<h3>Min Diameter</h3><h3 id = "diameterMin"></h3>
 <br>
 <script>
   function getNeoWs(){
@@ -26,13 +27,15 @@
       let rock = asteroids[asteroids.length-1];
       console.log(rock);
       let magnitude = document.getElementById("magnitude");
+      let name = document.getElementById("name");
+      let hazard = document.getElementById("hazard");
+      let diameterMax = document.getElementById("diameterMax");
+      let diameterMin = document.getElementById("diameterMin");
       magnitude.innerHTML = rock.absolute_magnitude_h;
-      /*let title = document.getElementById("title");
-      let imageElement = document.getElementById("dailyImage");
-      let explanationDiv = document.getElementById("explanation");
-      imageElement.src = data.hdurl;
-      explanationDiv.innerHTML = data.explanation;
-      title.innerHTML = data.title;*/
+      name.innerHTML = rock.name;
+      hazard.innerHTML = rock.is_potentially_hazardous_asteroid;
+      diameterMax.innerHTML = rock.estimated_diameter.feet.estimated_diameter_max;
+      diameterMin.innerHTML = rock.estimated_diameter.feet.estimated_diameter_min;
     });
   }
   let data = getNeoWs();

@@ -1,15 +1,13 @@
 <%- include('partials/header', {title:"NASA API: Space is Neat!"}) -%>
-<body class="space">
-  <% if(user){%>
-    <h1><center>Welcome <%user%> to the Nasa API!</center></h1>
-    <h2><center>Space is Neat</center></h2>
-  <%} else{%>
-    <br>
-    <center><h1>Nasa API!</h1>
-    <br><br>
-    <center><h3><a href="/login">Login</a></h3></center>
-  <%}%>
-<br>
+<body class = space>
+<div class="container">
+  <div class="jumbotron text-center text-primary">
+    <h1><span class="fa fa-lock"></span> Login to Enter Nasa API!</h1>
+    <p>Login with:
+      <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google"></span> Google</a>
+    </p>
+  </div>
+</div>
 <view class="space">
         <view class="stars">
             <view class="star"></view>
@@ -18,6 +16,5 @@
             <view class="star yellow"></view>
         </view>
 </view>
-<br><br>
 </body>
 <%- include('partials/footer') -%>

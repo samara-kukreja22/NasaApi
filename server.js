@@ -1,6 +1,8 @@
 const express = require('express');
+  router = express.Router();
 const fs = require('fs');
 const ejs = require('ejs');
+const methodOverride = require('method-override');
 
 const app = express();
 /*
@@ -9,17 +11,13 @@ take all the routes and put them into js files
 
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(methodOverride('_method'));//middleware for CRUD:UPDATE and DELETE
 app.use(express.static('public')); //specify location of static assests
 app.set('views', __dirname + '/views'); //specify location of templates
 app.set('view engine', 'ejs'); //specify templating library
 
-app.get('/', function(request, response) {
-  response.status(200);
-  response.setHeader('Content-Type', 'text/html')
-  response.render("index", {
-    user: request.user
-  });
-});
+app.use(require('./controllers/auth'));
+app.use(require('./controllers/index'));
 
 app.get('/potd.html', function(request, response){
   response.status(200);
