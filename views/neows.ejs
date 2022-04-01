@@ -1,11 +1,14 @@
-<%- include('partials/header', {title:"NASA API: Space is Neat!"}) -%>
+<%- include('partials/header', {title:"NASA API: Space is Neat!", "user": user}) -%>
+<body class = space>
 <br>
-<h1><center>NeoWs</center></h1><br>
+<h1><center>NeoWs</center></h1><br><center>
+<img src="https://media.istockphoto.com/photos/kuiper-belt-picture-id182090715?k=20&m=182090715&s=612x612&w=0&h=zJjYZcc8GiOwXW27czuZ6qFkNmPK1V64cwgJNYMwIDo=" alt="neows">
+</center>
 <h3>Magnitude:</h3><h3 id = "magnitude">Magnitude</h3>
 <h3>Name:</h3><h3 id = "name"></h3>
 <h3>Is Hazardous:</h3><h3 id = "hazard"></h3>
-<h3>Max Diameter</h3><h3 id = "diameterMax"></h3>
-<h3>Min Diameter</h3><h3 id = "diameterMin"></h3>
+<h3>Min Diameter(ft)</h3><h3 id = "diameterMin"></h3>
+<h3>Max Diameter(ft)</h3><h3 id = "diameterMax"></h3>
 <br>
 <script>
   function getNeoWs(){
@@ -40,8 +43,10 @@
   }
   let data = getNeoWs();
 </script>
-<h6><a href="/">Learn More</a></h6>
-<h6><a href="/">View Index</a></h6>
+<!--<h6><a href="/">Learn More</a></h6>
+<h6><a href="/">View Index</a></h6>-->
 <br>
-
+<h6>Comments:</h6>
+<%- include('partials/comments', {comments: comments}) -%>
+</body>
 <%- include('partials/footer') -%>

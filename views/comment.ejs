@@ -1,0 +1,18 @@
+<%- include('partials/header', {title:"NASA API: Space is Neat!", "user": user}) -%>
+<body class = space>
+<center><h2>Add a Comment!</h2></center><br>
+<form action="/comment" method="POST" id="form">
+  <center><label for="comment">Comment:</label>
+  <input type="text" id="comment" name="comment"><br></center><br>
+  <center><label for="pages">Select a Page</label>
+    <select name="pages" id="pages">
+      <option value="potd">Picture of the Day</option>
+      <option value="mars">Mars Rover</option>
+      <option value="earth">Earth</option>
+      <option value="neows">NeoWs</option>
+    </select><br><br></center>
+  <center><input type="submit" value="Create a Comment!"><br></center>
+</form>
+</body>
+
+<%- include('partials/footer') -%>

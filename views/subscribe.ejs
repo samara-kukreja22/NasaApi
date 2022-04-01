@@ -1,4 +1,5 @@
-<%- include('partials/header', {title:"NASA API: Space is Neat!"}) -%>
+<%- include('partials/header', {title:"NASA API: Space is Neat!", "user": user}) -%>
+<body class = space>
 <br>
 <h1><center>Subscribe!</center></h1><br>
 <h5>Select What Information you are Interested in:</h5>
@@ -19,4 +20,13 @@
   <input type="submit" value="Submit">
 </form>
 <br>
+<view class="space">
+        <view class="stars">
+            <view class="star"></view>
+            <view class="star pink"></view>
+            <view class="star blue"></view>
+            <view class="star yellow"></view>
+        </view>
+</view>
+</body>
 <%- include('partials/footer') -%>

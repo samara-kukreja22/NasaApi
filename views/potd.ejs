@@ -1,4 +1,5 @@
-<%- include('partials/header', {title:"NASA API: Space is Neat!"}) -%>
+<%- include('partials/header', {title:"NASA API: Space is Neat!", "user": user}) -%>
+<body class = space>
 <br>
 <h1><center>Picture of the Day</center></h1><br>
 <link rel="icon" type="image/png" href="images/logo.png" />
@@ -7,8 +8,10 @@
 <div id = "explanation">
 </div>
 <br>
-<h6><a href="/">Learn More</a></h6>
-<h6><a href="/">View Index</a></h6>
+<!--<h6><a href="/">Learn More</a></h6>
+<h6><a href="/">View Index</a></h6>-->
+<h6>Comments:</h6>
+<%- include('partials/comments', {comments: comments}) -%>
 <br>
 <script>
   function getDailyImage(){
@@ -26,4 +29,5 @@
   }
   let data = getDailyImage();
 </script>
+</body>
 <%- include('partials/footer') -%>

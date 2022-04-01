@@ -1,7 +1,7 @@
-<%- include('partials/header', {title:"NASA API: Space is Neat!"}) -%>
+<%- include('partials/header', {title:"NASA API: Space is Neat!", "user": user}) -%>
 <body class="space">
   <% if(user){%>
-    <h1><center>Welcome <%user%> to the Nasa API!</center></h1>
+    <h1><center>Welcome <%-user.emails[0].value%>, to the Nasa API!</center></h1>
     <h2><center>Space is Neat</center></h2>
   <%} else{%>
     <br>

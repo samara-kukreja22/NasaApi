@@ -1,18 +1,20 @@
-<%- include('partials/header', {title:"NASA API: Space is Neat!"}) -%>
-
+<%- include('partials/header', {title:"NASA API: Space is Neat!", "user": user}) -%>
+<body class = space>
 <br>
 <h1><center>Mars Rover</center></h1><br>
 <h3>Descripton about the purpose of the Mars Rover</h3>
 <link rel="icon" type="image/png" href="images/logo.png" />
 <center><img id = "marsImage" src = "" width = "80%"/></center><br><br>
-<h3 id = "imageDate"></h3>
-<h3 id = "roverName"></h3>
-<h4 id = "launchDate"></h4>
-<h4 id = "landDate"></h4>
-<h4 id = "fullName"></h4>
-<h4 id = "status"></h4>
-<h6><a href="/">Learn More</a></h6>
-<h6><a href="/">View Index</a></h6>
+<h3>Image Date: </h3><h3 id = "imageDate"></h3>
+<h3>Rover Name: </h3><h3 id = "roverName"></h3>
+<h4>Launch Date: </h4><h4 id = "launchDate"></h4>
+<h4>Land Date: </h4><h4 id = "landDate"></h4>
+<h4>Camera Type: </h4><h4 id = "fullName"></h4>
+<h4>Status:</h4><h4 id = "status"></h4>
+<!--<h6><a href="/">Learn More</a></h6>
+<h6><a href="/">View Index</a></h6>-->
+<h6>Comments:</h6>
+<%- include('partials/comments', {comments: comments}) -%>
 
 
 <script>
@@ -21,9 +23,10 @@
     let start = new Date(2021, 00, 01);
     let sol = Math.floor((today-start)/1000/60/60/24);
     //return the link and Description
-    return fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol="+ sol +"&api_key=sO5IxzzW7mtK9uXAITFi5RXRRO3eJeljRYlsKmkU")
+    return fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=sO5IxzzW7mtK9uXAITFi5RXRRO3eJeljRYlsKmkU")
     .then(response=>response.json())
     .then(data=>{
+      console.log(data);
       let image = document.getElementById("marsImage");
       let roverName = document.getElementById("roverName");
       let launchDate = document.getElementById("launchDate");
@@ -45,7 +48,7 @@
   }
   let data = getMarsImage();
 </script>
-
+</body>
 <!--<h5><a href="/">Learn More</a></h5>
 <h5><a href="/">View Index</a></h5>-->
 

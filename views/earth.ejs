@@ -1,13 +1,15 @@
-<%- include('partials/header', {title:"NASA API: Space is Neat!"}) -%>
-
+<%- include('partials/header', {title:"NASA API: Space is Neat!", user: user}) -%>
+<body class = space>
 <br>
 <h1><center>EPOC</center></h1><br>
 <h3>Descripton about EPOC</h3>
 <link rel="icon" type="image/png" href="images/logo.png" />
 <center><img id = "earthImage" src = "" width = "80%"/></center><br><br>
 <h3 id = "caption"></h3>
-<h6><a href="/">Learn More</a></h6>
-<h6><a href="/">View Index</a></h6>
+<!--<h6><a href="/">Learn More</a></h6>
+<h6><a href="/">View Index</a></h6>-->
+<h6>Comments:</h6>
+<%- include('partials/comments', {comments: comments}) -%>
 
 <script>
   function getEarthImage(){
@@ -28,8 +30,9 @@
     });
   }
   let data = getEarthImage();
-</script>
 
+</script>
+</body>
 <!--<h5><a href="/">Learn More</a></h5>
 <h5><a href="/">View Index</a></h5>-->
 

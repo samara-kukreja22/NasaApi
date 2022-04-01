@@ -5,9 +5,8 @@ const ejs = require('ejs');
 const methodOverride = require('method-override');
 
 const app = express();
-/*
-take all the routes and put them into js files
-*/
+
+//const Comments = require('../models/comments');
 
 app.use(express.json());
 app.use(express.urlencoded());
@@ -17,49 +16,27 @@ app.set('views', __dirname + '/views'); //specify location of templates
 app.set('view engine', 'ejs'); //specify templating library
 
 app.use(require('./controllers/auth'));
+app.use(require('./controllers/comment'));
 app.use(require('./controllers/index'));
-
-app.get('/potd.html', function(request, response){
-  response.status(200);
-  response.setHeader('Content-Type', 'text/html')
-  response.render("potd");
-});
-
-app.get('/mars.html', function(request, response){
-  response.status(200);
-  response.setHeader('Content-Type', 'text/html')
-  response.render("mars");
-});
-
-app.get('/astronomy.html', function(request, response){
-  response.status(200);
-  response.setHeader('Content-Type', 'text/html')
-  response.render("astronomy");
-});
-
-app.get('/earth.html', function(request, response){
-  response.status(200);
-  response.setHeader('Content-Type', 'text/html')
-  response.render("earth");
-});
-
-app.get('/neows.html', function(request, response){
-  response.status(200);
-  response.setHeader('Content-Type', 'text/html')
-  response.render("neows");
-});
+app.use(require('./controllers/potd'));
+app.use(require('./controllers/mars'));
+app.use(require('./controllers/earth'));
+app.use(require('./controllers/neows'));
 
 app.get('/subscribe.html', function(request, response){
   response.status(200);
   response.setHeader('Content-Type', 'text/html')
-  response.render("subscribe");
+  response.render("subscribe", {
+    user: request.user
+  });
 });
 
 app.use("", function(request, response){
   response.status(404);
   response.setHeader('Content-Type', 'text/html')
   response.render("error", {
-    "errorCode":"404"
+    "errorCode":"404",
+    user: request.user
   });
 });
 

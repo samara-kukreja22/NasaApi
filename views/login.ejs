@@ -1,7 +1,13 @@
-<%- include('partials/header', {title:"NASA API: Space is Neat!"}) -%>
-<body class="space">
-<h1><center>Log in!</center></h1>
-<br>
+<%- include('partials/header', {title:"NASA API: Space is Neat!", user: user}) -%>
+<body class = space>
+<div class="container">
+  <div class="jumbotron text-center text-primary">
+    <h1><span class="fa fa-lock"></span> Login to Enter Nasa API!</h1>
+    <p>Login with:
+      <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google"></span> Google</a>
+    </p>
+  </div>
+</div>
 <view class="space">
         <view class="stars">
             <view class="star"></view>
@@ -10,16 +16,5 @@
             <view class="star yellow"></view>
         </view>
 </view>
-
-<br><br>
 </body>
-
-<div class="container">
-  <div class="jumbotron text-center text-primary">
-    <p>Login with:
-      <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google"></span> Google</a>
-    </p>
-  </div>
-</div>
-
 <%- include('partials/footer') -%>

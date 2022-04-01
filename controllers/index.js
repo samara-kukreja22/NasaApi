@@ -3,10 +3,9 @@ const express = require('express'),
 
 
 router.get('/', function(request, response) {
-  console.log(request.user); //Passport adds user to the Request object if loggedIn
+  console.log("user is [" + JSON.stringify(request.user) + "]"); //Passport adds user to the Request object if loggedIn
   //console.log(request.user._json.email); //Passport adds user to the Request object if loggedIn
-  console.log(request.headers); //Encrypted session info is sent as a request header
-
+  console.log("request: " + request); //Encrypted session info is sent as a request header
   response.status(200);
   response.setHeader('Content-Type', 'text/html')
   response.render("index", {
@@ -41,4 +40,4 @@ router.get('/error', function(request, response) {
   });
 });
 
-module.exports = router
+module.exports = router;
