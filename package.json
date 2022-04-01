@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/samara-kukreja22/NasaApi/issues"
   },
-  "homepage": "https://github.com/samara-kukreja22/NasaApi#readme"
+  "homepage": "https://github.com/samara-kukreja22/NasaApi#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
