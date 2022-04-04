@@ -11,17 +11,17 @@ exports.writeComments = function(page, comments){
 
 exports.deleteComments = function(page, index){
   //open up the comments: getComments
-  let comments = getComments(page);
+  let comments = exports.getComments(page);
   //remove the message
   comments.remove(index);
   //write the messages: writeComments
-  writeComments(page, comments);
+  exports.writeComments(page, comments);
 }
 
 exports.selectCommentsByUser = function(page, user){
   //look through the comments and any comment with a matching user goes into a new list/dictionary
   //must put the index of the message in the data somewhere
-  let comments = getComments(page);
+  let comments = exports.getComments(page);
   let results = [];
   for(let i = 0; i<comments.length; i++){
     if(comments[i].user == user){
@@ -34,9 +34,9 @@ exports.selectCommentsByUser = function(page, user){
   return results;
 }
 exports.updateComments = function(page, index, message){
-  let comments = getComments(page);
+  let comments = exports.getComments(page);
   comments[index].comment = message;
   comments[index].date = new Date();
-  writeComments(page, comments);
+  exports.writeComments(page, comments);
 }
 //all CRUD functions to be located here
