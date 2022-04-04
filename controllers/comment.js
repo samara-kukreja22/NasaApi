@@ -5,10 +5,11 @@ const Comments = require('../models/comments');
 const Users = require('../models/users');
 
 router.get('/comment.html', function(request, response){
-  let earthComments = Comments.getComments("earth");
-  let marsComments = Comments.getComments("mars");
-  let potdComments = Comments.getComments("potd");
-  let neowsComments = Comments.getComments("neows");
+  let user = JSON.stringify(request.user);
+  let earthComments = Comments.selectCommentsByUser("earth", user);
+  let marsComments = Comments.selectCommentsByUser("mars", user);
+  let potdComments = Comments.selectCommentsByUser("potd", user);
+  let neowsComments = Comments.selectCommentsByUser("neows", user);
   response.status(200);
   response.setHeader('Content-Type', 'text/html')
   response.render("comment", {
