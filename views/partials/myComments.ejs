@@ -1,0 +1,9 @@
+<% comments.forEach(function(comment){%>
+  <ul>
+  <small>user: <%=comment.user%></small><br>
+  <small>date: <%=comment.date%></small><br>
+  <small>comment: <%=comment.comment%></small><br>
+  <small><a href="/delete?page=<%=comment.page%>&index=<%=comment.index%>">Delete Comment</a></small>
+  <small><a href="/edit?page=<%=comment.page%>&index=<%=comment.index%>">Edit Comment</a></small>
+  </ul>
+<%});%>

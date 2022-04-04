@@ -1,1 +1,12 @@
-[{"user":"justin.test1@trinityschoolnyc.org","date":"2022-04-01T21:09:18.041Z","comment":"hi"},{"user":"justin.test1@trinityschoolnyc.org","date":"2022-04-01T21:12:27.918Z","comment":"neows"}]
+[
+  {
+    "user": "justin.test1@trinityschoolnyc.org",
+    "date": "2022-04-01T21:09:18.041Z",
+    "comment": "hi"
+  },
+  {
+    "user": "justin.test1@trinityschoolnyc.org",
+    "date": "2022-04-01T21:12:27.918Z",
+    "comment": "neows"
+  }
+]

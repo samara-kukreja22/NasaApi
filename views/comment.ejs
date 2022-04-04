@@ -13,6 +13,10 @@
     </select><br><br></center>
   <center><input type="submit" value="Create a Comment!"><br></center>
 </form>
+<%- include('partials/myComments', {comments: earthComments}) -%>
+<%- include('partials/myComments', {comments: marsComments}) -%>
+<%- include('partials/myComments', {comments: potdComments}) -%>
+<%- include('partials/myComments', {comments: neowsComments}) -%>
 </body>
 
 <%- include('partials/footer') -%>

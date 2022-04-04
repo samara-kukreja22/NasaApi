@@ -5,6 +5,30 @@ const Comments = require('../models/comments');
 const Users = require('../models/users');
 
 router.get('/comment.html', function(request, response){
+  let earthComments = Comments.getComments("earth");
+  let marsComments = Comments.getComments("mars");
+  let potdComments = Comments.getComments("potd");
+  let neowsComments = Comments.getComments("neows");
+  response.status(200);
+  response.setHeader('Content-Type', 'text/html')
+  response.render("comment", {
+    user: request.user,
+    earthComments: earthComments,
+    marsComments: marsComments,
+    potdComments: potdComments,
+    neowsComments: neowsComments
+  });
+});
+
+router.get('/delete', function(request, response){
+  let index = request.query.index;
+  let page = request.page.index;
+  Comments.deleteComments(page, index);
+  response.redirect('/comment.html');
+});
+
+
+router.get('/edit', function(request, response){
   response.status(200);
   response.setHeader('Content-Type', 'text/html')
   response.render("comment", {
