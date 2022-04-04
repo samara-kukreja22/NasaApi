@@ -31,7 +31,7 @@ exports.selectCommentsByUser = function(page, user){
       results.push(comment);
     }
   }
-  console.log()
+  console.log("select comments by user " + page + " " + user + " ");
   return results;
 }
 exports.updateComments = function(page, index, message){
