@@ -23,14 +23,15 @@ exports.selectCommentsByUser = function(page, user){
   //must put the index of the message in the data somewhere
   let comments = exports.getComments(page);
   let results = [];
-  for(let i = 0; i<comments.length; i++){
+  //for(let i = 0; i<comments.length; i++){
+  comments.forEach(function(value, i){
     if(comments[i].user == user){
       comment = comments[i];
       comment.index = i;
       comment.page = page;
       results.push(comment);
     }
-  }
+  });
   console.log("select comments by user " + page + " " + user + " ");
   return results;
 }
