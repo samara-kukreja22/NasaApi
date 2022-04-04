@@ -5,7 +5,7 @@ const Comments = require('../models/comments');
 const Users = require('../models/users');
 
 router.get('/comment.html', function(request, response){
-  let user = JSON.stringify(request.user);
+  let user = request.user.emails[0].value;
   let earthComments = Comments.selectCommentsByUser("earth", user);
   let marsComments = Comments.selectCommentsByUser("mars", user);
   let potdComments = Comments.selectCommentsByUser("potd", user);
