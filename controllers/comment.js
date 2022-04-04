@@ -23,7 +23,7 @@ router.get('/comment.html', function(request, response){
 
 router.get('/delete', function(request, response){
   let index = request.query.index;
-  let page = request.page.index;
+  let page = request.query.page;
   Comments.deleteComments(page, index);
   response.redirect('/comment.html');
 });
